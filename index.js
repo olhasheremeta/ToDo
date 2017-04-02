@@ -1,17 +1,9 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import AppBody from './components/AppBody';
+import App from './components/App';
 
-
-
-const App = (props) => (
-  <div>
-    <h1>{props.title}</h1>
-    <AppBody />
-  </div>
-);
 
 ReactDOM.render(
-  <App title="The best To-do" />,
+  <App />,
   document.getElementById('root')
 );

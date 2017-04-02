@@ -33,7 +33,7 @@ module.exports = {
       React: 'react',
     }),
 
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
   ],
 
   devtool: 'source-map',
