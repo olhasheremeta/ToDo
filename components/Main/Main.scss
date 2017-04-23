@@ -1,4 +1,6 @@
 .Main {
-  margin-top: 10px;
-  background-color: palegreen; 
+  display: flex;
+  background-color: #fefbd8;
+  background: linear-gradient(to right, #fefbd8 0%, #d5f4e6 100%);
+  height: calc(100% - 80px);
 }

@@ -1,0 +1,30 @@
+.Counter {
+  height: 100px;
+  width: 200px;
+  background-color: grey;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 3px;
+  flex-direction: column;
+
+  .Counter-button {
+    height: 30px;
+    width: 50px;
+    border-radius: 3px;
+    border: 1px solid white;
+  }
+
+  .ButtonContainer + .ButtonContainer {
+    margin-top: 10px;
+
+  }
+  .ButtonContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+}
