@@ -1,5 +1,10 @@
 import React from 'react';
+
+import Dropdown from '../Dropdown/Dropdown';
+
 import parseSeconds from '../../utils/parseSeconds';
+
+import './Pomodoro.scss'
 
 const focused = 10;
 const relaxed = 4;
@@ -55,15 +60,16 @@ class Pomodoro extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <span>{parseSeconds(this.state.time)}</span>
-        </div>
+      <div className="Pomodoro">
         <div>
           <button onClick={this.startTimer}>Start</button>
           <button onClick={this.pauseTimer}>Pause</button>
           <button onClick={this.resetTimer}>Stop</button>
         </div>
+        <div>
+          <span>{parseSeconds(this.state.time)}</span>
+        </div>
+        <Dropdown />
       </div>
     )
   }
