@@ -1,0 +1,21 @@
+.PomodoroSettings {
+  display: inline-block;
+  align-self: flex-end;
+
+  .PomodoroSettings-body {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: grey;
+    border: 2px solid white;
+    border-radius: 3px;
+    top: 0;
+
+    &.isOpen {
+      display: block;
+      
+    }
+  }
+}

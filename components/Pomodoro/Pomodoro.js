@@ -1,28 +1,28 @@
 import React from 'react';
 
-import Dropdown from '../Dropdown/Dropdown';
+import PomodoroSettings from '../PomodoroSettings/PomodoroSettings';
 
 import parseSeconds from '../../utils/parseSeconds';
 
 import './Pomodoro.scss'
 
-const focused = 10;
-const relaxed = 4;
-
 class Pomodoro extends React.Component {
 
   state = {
-    time: focused,
-    type: 'focused'
+    time: 0,
+    type: 'pomodoro',
+    pomodoro: 10,
+    brake: 4,
+    isRunning: false
   }
 
   switchType = () => {
-    let time = focused;
-    let type = 'focused';
+    let time = this.state.pomodoro * 60;
+    let type = 'pomodoro';
 
-    if (this.state.type === 'focused') {
-      time = relaxed
-      type = 'relaxed'
+    if (this.state.type === 'pomodoro') {
+      time = this.state.brake * 60
+      type = 'brake'
     }
 
     this.setState({
@@ -44,17 +44,32 @@ class Pomodoro extends React.Component {
   startTimer = () => {
     clearInterval(this.interval)
     this.interval = setInterval(this.timeCountdown, 1000);
+
+    if (!this.state.isRunning) {
+      this.setState({
+        isRunning: true,
+        time: this.state.pomodoro * 60
+      })
+    }
   }
 
   pauseTimer = () => {
     clearInterval(this.interval);
   }
 
-  resetTimer = () => {
+  stopTimer = () => {
     clearInterval(this.interval);
     this.setState({
-      time: focused,
-      type: 'focused'
+      isRunning: false,
+      time: this.state.pomodoro * 60,
+      type: 'pomodoro'
+    })
+  }
+
+  submitSettings = (pomodoro, brake) => {
+    this.setState({
+      pomodoro: pomodoro,
+      brake: brake
     })
   }
 
@@ -64,12 +79,18 @@ class Pomodoro extends React.Component {
         <div>
           <button onClick={this.startTimer}>Start</button>
           <button onClick={this.pauseTimer}>Pause</button>
-          <button onClick={this.resetTimer}>Stop</button>
+          <button onClick={this.stopTimer}>Stop</button>
         </div>
         <div>
-          <span>{parseSeconds(this.state.time)}</span>
+          <span>
+            {parseSeconds(this.state.isRunning ? this.state.time : this.state.pomodoro * 60)}
+          </span>
         </div>
-        <Dropdown />
+        <PomodoroSettings
+          onSubmit={this.submitSettings}
+          pomodoro={this.state.pomodoro}
+          brake={this.state.brake}
+        />
       </div>
     )
   }
