@@ -4,7 +4,7 @@ import './Header.scss';
 
 const Header = () => (
   <div className="Header">
-    <div className="Header-title">Olha Sheremeta App</div>
+    <div className="Header-title">I'm learning React</div>
   </div>
 )
 
