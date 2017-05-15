@@ -1,6 +1,7 @@
 import React from 'react';
 
 import PomodoroSettings from './PomodoroSettings';
+import Button from '../Button/Button';
 
 import parseSeconds from '../../utils/parseSeconds';
 
@@ -77,9 +78,9 @@ class Pomodoro extends React.Component {
     return (
       <div className="Pomodoro">
         <div>
-          <button onClick={this.startTimer}>Start</button>
-          <button onClick={this.pauseTimer}>Pause</button>
-          <button onClick={this.stopTimer}>Stop</button>
+          <Button OnClick={this.startTimer}>Start</Button>
+          <Button OnClick={this.pauseTimer}>Pause</Button>
+          <Button OnClick={this.stopTimer}>Stop</Button>
         </div>
         <div>
           <span>
