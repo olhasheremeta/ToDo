@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PomodoroSettings from '../PomodoroSettings/PomodoroSettings';
+import PomodoroSettings from './PomodoroSettings';
 
 import parseSeconds from '../../utils/parseSeconds';
 
