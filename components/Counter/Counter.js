@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from '../Button/Button';
+
 
 import './Counter.scss';
 
@@ -6,10 +8,10 @@ class Counter extends React.Component {
   state = {
     counter: 0
   }
-  
+
   increaseCount = () => {
     this.setState({
-      counter: this.state.counter + 1 
+      counter: this.state.counter + 1
     })
   };
 
@@ -24,19 +26,19 @@ class Counter extends React.Component {
       counter: 0
     })
   };
-  
+
   render() {
     return (
       <div className="Counter">
-        <div className="ButtonContainer"> 
-          <button className="Counter-button" onClick={this.increaseCount}>+</button>
-          <div>
-            <span className="Counter-value">{this.state.counter}</span>
-          </div>
-          <button className="Counter-button" onClick={this.decreaseCount}>-</button>
+        <div>
+          <span className="Counter-value">{this.state.counter}</span>
         </div>
         <div className="ButtonContainer">
-          <button className="Counter-button" onClick={this.resetCount}>Reset</button>
+          <Button OnClick={this.increaseCount}>+</Button>
+          <Button OnClick={this.decreaseCount}>-</Button>
+        </div>
+        <div className="ButtonContainer">
+          <Button OnClick={this.resetCount}>Reset</Button>
         </div>
       </div>
     );

@@ -1,0 +1,18 @@
+.Input {
+  box-sizing: border-box; 
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box; 
+  padding: 4px;
+  font-size: 15px;
+  outline: none;
+  border: 1px solid #5B6AC7;
+  width: 50px;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  &:focus{
+    box-shadow: 0 0 5px #5B6AC7;
+    border:1px solid #5B6AC7;
+  }
+}

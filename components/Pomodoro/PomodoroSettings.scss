@@ -1,6 +1,7 @@
 .PomodoroSettings {
   display: inline-block;
   align-self: flex-end;
+  
 
   .PomodoroSettings-body {
     display: none;
@@ -8,14 +9,26 @@
     height: 100%;
     width: 100%;
     left: 0;
-    background-color: grey;
-    border: 2px solid white;
+    background-color: #fff;
     border-radius: 3px;
     top: 0;
+    padding: 5px;    
 
     &.isOpen {
       display: block;
       
     }
+    .pomodoroInputHolder, .brakeInputHolder{
+      margin-bottom: 5px;
+    }
+
+    .label {
+        margin-bottom: 5px;
+      }
+
+    .min {
+    margin-left: 5px;
+    }
+  
   }
 }

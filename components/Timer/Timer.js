@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Button from '../Button/Button';
+import Input from '../Input/Input';
 import parseSeconds from '../../utils/parseSeconds';
 
 import './Timer.scss'
@@ -26,15 +28,20 @@ class Timer extends React.Component {
   }
 
   startTimer = () => {
+    const mins = parseInt(this.minutes.value)
+    const secs = parseInt(this.seconds.value)
+
+    if (mins === 0 && secs === 0) return
+
     clearInterval(this.interval)
     this.interval = setInterval(this.decreaseTime, 1000);
 
     this.setState({
-      seconds: parseInt(this.minutes.value || 0) * 60 + parseInt(this.seconds.value)
+      seconds: mins * 60 + secs
     })
 
-    this.seconds.value = '';
-    this.minutes.value = '';
+    this.seconds.value = 0;
+    this.minutes.value = 0;
   }
 
   stopTimer = () => {
@@ -45,29 +52,31 @@ class Timer extends React.Component {
   render() {
     return (
       <div className="Timer">
-        <div>
-          <input
-            type="number"
-            min="0"
-            max="59"
-            placeholder="0"
-            ref={(input) => { this.minutes = input; }}
+        <div className="inputHolder">
+          <Input
+            Type="number"
+            Min="0"
+            Max="59"
+            DefaultValue="0"
+            Ref={(input) => { this.minutes = input; }}
           />
+          <span>min.</span>
 
-          <input
-            type="number"
-            min="0"
-            max="59"
-            placeholder="0"
-            ref={(input) => { this.seconds = input; }}
+          <Input
+            Type="number"
+            Min="0"
+            Max="59"
+            DefaultValue="0"
+            Ref={(input) => { this.seconds = input; }}
           />
+          <span>sec.</span>
         </div>
-        <div>
+        <div className="showTimer">
           <span id='timerSpan'>{parseSeconds(this.state.seconds)}</span>
         </div>
         <div>
-          <button onClick={this.startTimer}>Start</button>
-          <button onClick={this.stopTimer}>Stop</button>
+          <Button OnClick={this.startTimer}>Start</Button>
+          <Button OnClick={this.stopTimer}>Stop</Button>
         </div>
       </div>
     );

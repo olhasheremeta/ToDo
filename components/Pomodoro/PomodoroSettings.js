@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import Button from '../Button/Button';
+import Input from '../Input/Input';
 
 import './PomodoroSettings.scss';
 
@@ -43,35 +45,30 @@ class PomodoroSettings extends React.Component {
 
     return (
       <div className="PomodoroSettings">
-        <button
-          className="PomodoroSettings-button"
-          onClick={this.openSettings}
-        >
-          Settings
-        </button>
+        <Button OnClick={this.openSettings}>Settings</Button>
         <div className={classes}>
-          <div>
-            <span>Pomodoro time</span><br/>
-            <input 
-              type="number"
-              defaultValue={this.props.pomodoro} 
-              min="0"
-              ref={(input) => { this.pomodoroInput = input }}
+          <div className="pomodoroInputHolder">
+            <span className="label">Pomodoro time:</span><br/>
+            <Input 
+              Type="number"
+              DefaultValue={this.props.pomodoro} 
+              Min="0"
+              Ref={(input) => { this.pomodoroInput = input }}
             />
-            <span>min.</span>
+            <span className="min">min.</span>
           </div>
-          <div>
-            <span>Break time</span><br/>
-            <input 
-              type="number"
-              defaultValue={this.props.brake}
-              min="0"
-              ref={(input) => { this.brakeInput = input }}
+          <div className="brakeInputHolder">
+            <span className="label">Break time:</span><br/>
+            <Input 
+              Type="number"
+              DefaultValue={this.props.brake}
+              Min="0"
+              Ref={(input) => { this.brakeInput = input }}
              />
-            <span>min.</span>
+            <span className="min">min.</span>
           </div>
-          <button onClick={this.handleCancel}>Cancel</button>
-          <button onClick={this.handleSubmit}>Submit</button>
+          <Button OnClick={this.handleCancel}>Cancel</Button>
+          <Button OnClick={this.handleSubmit}>Submit</Button>
         </div>
       </div>
     );
