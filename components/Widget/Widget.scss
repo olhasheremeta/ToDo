@@ -26,12 +26,13 @@
     .Widget-body-overlay {
       background-color: #fff;
       height: 246px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       
-      .Start-btn {
-        background-color: #5B6AC7;
-        color: #fff;
+      .Button {
+        
       }
-
     }
   }
 }

@@ -4,27 +4,22 @@ import Button from '../Button/Button';
 import './Widget.scss'
 
 class Widget extends React.Component {
-  state = {
-    isRunning: false
-  }
 
-  start = () => {
-    this.setState({
-      isRunning: true
-    });
+  handleStart = () => {
+    this.props.start(this.props.id)
   }
-
+  
   render() {
     return (
       <div className="Widget">
         <div className="Widget-title">{this.props.title}</div>
         <div className="Widget-body">
           {
-            this.state.isRunning
+            this.props.isRunning
              ? this.props.children
              : (
               <div className="Widget-body-overlay">
-                <Button OnClick={this.start} className="Start-btn">Start</Button>
+                <Button OnClick={this.handleStart}>Start</Button>
               </div>
              )
           }          
