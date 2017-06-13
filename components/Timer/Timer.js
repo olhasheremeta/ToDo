@@ -28,8 +28,8 @@ class Timer extends React.Component {
   }
 
   startTimer = () => {
-    const mins = parseInt(this.minutes.value)
-    const secs = parseInt(this.seconds.value)
+    const mins = parseInt(this.minutes.value || 0)
+    const secs = parseInt(this.seconds.value || 0)
 
     if (mins === 0 && secs === 0) return
 
