@@ -3,6 +3,7 @@ import Widget from '../Widget/Widget';
 import Counter from '../Counter/Counter';
 import Timer from '../Timer/Timer';
 import Pomodoro from '../Pomodoro/Pomodoro';
+import TicTacToe from '../TicTacToe/TicTacToe';
 
 import './Main.scss';
 
@@ -49,6 +50,14 @@ class Main extends React.Component {
           start={this.startApp}
         >
           <Pomodoro />
+        </Widget>
+        <Widget
+          id="tictactoe"
+          title="TicTacToe"
+          isRunning={this.isAppActive('tictactoe')}
+          start={this.startApp}
+        >
+          <TicTacToe />
         </Widget>
       </div>
     )
