@@ -32,6 +32,17 @@
       justify-content: center;
       text-align: center;
       flex-direction: column;
+      user-select: none;
+
+      &.disabled:hover {
+        background-color: #fff;
+        cursor: default;
+      }
+
+      &:hover {
+        background-color: #e7eaff;
+        cursor: pointer;
+      }
 
       &:last-child {
         border-bottom: none;
