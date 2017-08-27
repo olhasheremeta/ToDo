@@ -12,7 +12,8 @@ class TicTacToe extends React.Component {
     ],
     turn: 'X',
     isPlaying: true,
-    winner: null
+    winner: null,
+    turnNumber: 0
   }
 
   handleCellClick = (column, row) => () => {
@@ -25,7 +26,8 @@ class TicTacToe extends React.Component {
       gameField: gameFieldCopy,
       turn: this.state.turn === 'X' ? 'O' : 'X',
       isPlaying: !isFinished,
-      winner: isFinished && this.state.turn
+      winner: isFinished && this.state.turn,
+      turnNumber: this.state.turnNumber + 1
     })
 
   }
@@ -86,6 +88,20 @@ class TicTacToe extends React.Component {
     return false;
   }
 
+  resetGame = () => {
+    this.setState({
+      gameField: [
+        [null, null, null],
+        [null, null, null],
+        [null, null, null]
+      ],
+      turn: 'X',
+      isPlaying: true,
+      winner: null,
+      turnNumber: 0
+    })
+  }
+
   render() {
     return (
       <div className="TicTacToe">
@@ -95,11 +111,13 @@ class TicTacToe extends React.Component {
           }
         </div>
         <div className="TicTacToe-controls">
-          {
-            this.state.isPlaying 
-            ? <span>{`${this.state.turn}'s turn`}</span>
-            : <span>{`${this.state.winner} WON!!!`}</span>
+          {this.state.turnNumber == 9 && !this.state.winner
+            ? <span>It's a tie!</span>
+            : this.state.isPlaying 
+              ? <span>{`${this.state.turn}'s turn`}</span>
+              : <span>{`${this.state.winner} WON!!!`}</span>
           }
+          <Button OnClick={this.resetGame}>Reset</Button>
         </div>
       </div>
     )
